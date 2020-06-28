@@ -3,11 +3,11 @@
 
 use core::result;
 use std::borrow::Cow;
-use std::fmt::{Debug, Formatter, Result as FmtResult};
+use std::fmt::{Debug, Formatter, Result};
 
 pub(crate) const CONSOLE_FMT_WIDTH: usize = 50;
 
-pub(crate) type Result<T> = result::Result<T, MyErr>;
+pub(crate) type MyResult<T> = result::Result<T, MyErr>;
 
 pub struct MyErr {
   err: Cow<'static, str>,
@@ -50,7 +50,7 @@ macro_rules! my_err_of_err {
 }
 
 impl Debug for MyErr {
-  fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
+  fn fmt(&self, f: &mut Formatter<'_>) -> Result {
     const ERROR: &str = "ERROR";
     writeln!(
       f, "
