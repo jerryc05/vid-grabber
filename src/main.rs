@@ -53,7 +53,7 @@ fn parse_v_id() -> String {
         .map_err(|e| my_err_of_err!(e)).unwrap();
     let v_id = (&cap[1]).to_string();
     println!("---");
-    println!("Video ID: {}", v_id);
+    println!("Video ID: [{}]", v_id);
     println!("---");
     v_id
   }
